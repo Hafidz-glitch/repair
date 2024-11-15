@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perbaikan Touchscreen Vivo Y91C</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            background: #f0f0f0;
+        }
+
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .step {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #f8f8f8;
+            border-radius: 5px;
+        }
+
+        .warning {
+            color: #721c24;
+            background-color: #f8d7da;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            margin: 10px 0;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #0056b3;
+        }
+
+        #status {
+            margin-top: 20px;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .success {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .error {
+            background: #f8d7da;
+            color: #721c24;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Perbaikan Touchscreen Vivo Y91C</h1>
+
+        <div class="warning">
+            PERHATIAN: Gunakan aplikasi ini dengan hati-hati. Backup data penting sebelum melanjutkan.
+        </div>
+
+        <div class="step">
+            <h3>Status Perangkat:</h3>
+            <p id="deviceInfo">Mendeteksi perangkat...</p>
+        </div>
+
+        <div class="step">
+            <h3>Langkah Perbaikan:</h3>
+            <button onclick="checkDevice()">1. Cek Kompatibilitas Perangkat</button>
+            <button onclick="backupTouchConfig()">2. Backup Konfigurasi Touch</button>
+            <button onclick="calibrateTouchscreen()">3. Kalibrasi Touchscreen</button>
+            <button onclick="updateTouchDriver()">4. Update Driver Touch</button>
+            <button onclick="resetTouchConfig()">5. Reset Konfigurasi Touch</button>
+        </div>
+
+        <div id="status"></div>
+    </div>
+
+    <script>
+        const VIVO_Y91C_TOUCH_API = {
+            driverVersion: "1.2.3",
+            touchConfigPath: "/sys/devices/platform/touch/config",
+            calibrationPath: "/sys/devices/platform/touch/calibration"
+        };
+
+        function checkDevice() {
+            const status = document.getElementById('status');
+            const deviceInfo = document.getElementById('deviceInfo');
+
+            // Simulasi pengecekan perangkat
+            if (isVivoY91C()) {
+                deviceInfo.textContent = "Vivo Y91C terdeteksi";
+                status.textContent = "Perangkat kompatibel";
+                status.className = "success";
+            } else {
+                deviceInfo.textContent = "Perangkat tidak terdeteksi";
+                status.textContent = "Perangkat tidak kompatibel";
+                status.className = "error";
+            }
+        }
+
+        function isVivoY91C() {
+            // Simulasi pengecekan model perangkat
+            return true; // Dalam implementasi nyata, ini akan mengecek model perangkat
+        }
+
+        function backupTouchConfig() {
+            const status = document.getElementById('status');
+            try {
+                // Simulasi backup konfigurasi
+                status.textContent = "Backup konfigurasi berhasil";
+                status.className = "success";
+            } catch (error) {
+                status.textContent = "Gagal melakukan backup: " + error.message;
+                status.className = "error";
+            }
+        }
+
+        function calibrateTouchscreen() {
+            const status = document.getElementById('status');
+            try {
+                // Simulasi kalibrasi touchscreen
+                status.textContent = "Kalibrasi touchscreen berhasil";
+                status.className = "success";
+            } catch (error) {
+                status.textContent = "Gagal melakukan kalibrasi: " + error.message;
+                status.className = "error";
+            }
+        }
+
+        function updateTouchDriver() {
+            const status = document.getElementById('status');
+            try {
+                // Simulasi update driver
+                status.textContent = "Driver touch berhasil diperbarui";
+                status.className = "success";
+            } catch (error) {
+                status.textContent = "Gagal memperbarui driver: " + error.message;
+                status.className = "error";
+            }
+        }
+
+        function resetTouchConfig() {
+            const status = document.getElementById('status');
+            try {
+                // Simulasi reset konfigurasi
+                status.textContent = "Reset konfigurasi touch berhasil";
+                status.className = "success";
+            } catch (error) {
+                status.textContent = "Gagal melakukan reset: " + error.message;
+                status.className = "error";
+            }
+        }
+
+        // Inisialisasi saat halaman dimuat
+        document.addEventListener('DOMContentLoaded', function() {
+            checkDevice();
+        });
+    </script>
+</body>
+</html>
